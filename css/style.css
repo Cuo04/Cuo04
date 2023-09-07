@@ -1,0 +1,1068 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+/* This is a general styling that will affect the entire document */
+* {
+    font-family: 'Poppins', 'sans-serif';
+    margin: 0;    /* this removes or spaces and take the page content to the edge of the page */
+    padding: 0;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+}
+
+/* This creating css variable colors that can be used at any time  */
+:root {
+    --bg-color: #081b29;
+    --second-bg-color: #e2e9ed;
+    --text-color: #ededed;
+    --main-color: #00abf0;
+}
+
+html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+}
+
+body {
+    background: var(--text-color);
+    color: var(--bg-color);
+    font-weight:300;
+}
+
+/* ------------------------------------------------>Styling the header <----------------------------------------------------------------*/
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem 9%;
+    background: transparent; /*initially had a real color. This transparent to the header will make it hv same color as the background.*/
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    transition: .3s;
+}
+
+.header.sticky {
+    background: var(--text-color);
+}
+
+/* Styling the logo i.e my name */
+.logo {
+    position: relative;
+    font-size: 2.5rem;
+    color: var(--bg-color);
+    font-weight: 600;
+}
+
+.navbar {
+    position: relative;
+
+}
+
+/* Specifically styling the anchor elements for navigation */
+.navbar a {
+    font-size: 1.7rem;
+    color: var(--bg-color);
+    font-family: 500;
+    margin-left: 3.5rem;
+    transition: .3s;
+}
+.navbar a:hover,
+.navbar a.active {
+    color: var(--main-color);
+}
+
+/* Styling the menu icon */
+#menu-icon {
+    position: relative;
+    font-size: 3.6rem;
+    color: var(--bg-color);
+    cursor: pointer;
+    display: none;  /* This will basically make the display icon to disappear;*/
+}
+
+/* ---------------------------------------------->Styling the home section <------------------------------------------------------------------*/
+
+/* This specifically will take care of every other thing in the section */
+section {
+    min-height: 100vh; /*This actually increases the vertical height possible of the home section */
+    padding: 10rem 9% 2rem;
+}
+
+/* Styling the words content */
+.home {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 0 9%;
+    background: var(--text-color);
+    /* background: url('../images/crhome.png') no-repeat;
+    background-size: contain;
+    background-position: 180% center; */
+    overflow: hidden;
+}
+
+.home::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* background: linear-gradient(to bottom right, var(--text-color), black), url('../images/crhome.png') no-repeat; */
+    background: url('../images/crhome.png') no-repeat;
+    background-size: contain;
+    background-position: 210% center;
+    opacity: 0.2; /* Adjust the opacity as desired */
+    z-index: 1; /* Place the image behind the content */
+    
+}
+/* This is making the image glow when one hovers over the home header */
+.home:hover::before {
+    opacity: 0.09;
+}
+.home-content {
+    max-width: 60rem;
+}
+.home-content h1 {
+    position: relative;
+    display: inline-block;
+    font-size: 5.0rem;
+    font-weight: 700;
+    line-height: 1.5;
+}
+
+.home-content h1 span {
+    color: var(--bg-color);
+}
+
+
+/* Putting the animation */
+.home-content .text-animate{
+    position: relative;
+    width: 32.8rem
+}
+
+/* This specifically dealt with the transparent looking h3 bearing full stake developer */
+.home-content .text-animate h3 {
+    font-size: 2.0rem;
+    font-weight: 700;
+    color:  transparent;
+    -webkit-text-stroke: .7px var(--main-color); /*This specifically changed the transparency. It can have minus sign* */
+    background-image: linear-gradient(var(--main-color), var(--main-color));
+    background-repeat: no-repeat;
+    -webkit-background-clip: text; /* this now comes in to make the have that animated color change*/
+    background-position: -33rem 0;
+    animation: homeBgText 6s linear infinite;
+    animation-delay: 2s;
+}
+
+.home.show-animate .home-content .text-animate h3 { 
+    animation: homeBgText 6s linear infinite;
+    animation-delay: 2s;
+}
+
+.home-content .text-animate h3::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    border-right: 2px solid var(--main-color);
+    z-index: -1;
+    
+}
+
+/* This changes the cursor style whenever it is pointing at a link from being an arror to a hand */
+.home.show-animate .home-content .text-animate h3::before {
+    animation: homeCursorText 6s linear infinite;
+    animation-delay: 2s;
+}
+
+/* This specifically styled the paragraph */
+.home-content p {
+    position: relative;
+    font-size: 1.6rem;
+    margin: 2rem 0 4rem;
+    text-align: justify;
+}
+
+/* This specifically dealing with the box that contains the two anchor buttons below the paragraph */
+.btn-box {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    width: 34.5rem;
+    height: 5rem;
+}
+
+/* This specifically dealing with the individual buttons */
+.btn-box .btn {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 15rem;
+    height: 100%;
+    background: var(--main-color);
+    border: .2rem solid var(--main-color);
+    border-radius: .8rem;
+    font-size: 1.8rem;
+    font-weight: 600;
+    letter-spacing: .1rem;
+    color: var(--bg-color);
+    z-index: 1;
+    overflow: hidden;
+    transition: .5s; 
+}
+/*This styles specifically styled the buttons differently*/
+.btn-box .btn:hover {
+    color: var(--main-color)
+}
+.btn-box .btn:nth-child(2) {
+    background: transparent;
+    color: var(--main-color)
+}
+.btn-box .btn:nth-child(2):hover {
+    color: var(--bg-color);
+}
+.btn-box .btn:nth-child(2)::before {
+    background: var(--main-color);
+}
+.btn-box .btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0; /*making this zero will make all the styles here not to show*/
+    height: 100%;
+    background: var(--text-color);
+    z-index: -1; /* This specifically makes the styles of this class stay behind the word. use 1 if u want it in front  */
+    transition: .5s;
+}
+
+.btn-box .btn:hover::before {
+    width: 100%; /*this will make whenever a hover occurs, all the styles apply above will appear.*/
+}
+
+
+/* ------------------------------------>This point specifically works on the social media icons<------------------------------------------------- */
+
+/* This is working on the container containing the sm icons */
+.home-sci {
+    position: absolute;
+    bottom: 4rem;
+    width: 226.67px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* This is working on the individual icons automatically together */
+.home-sci a {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background: transparent; /* this transparent enables the background color of .home-sci a::before to show even after making z-index=1 which 
+    normally should make the styles of .home-sci a cover the styles of .home-sci a::before */
+    border: .2rem solid var(--main-color);
+    border-radius: 50%;
+    font-size: 20px;
+    color: var(--main-color);
+    z-index: 1;
+    overflow: hidden; /*This makes sure that any part of the design from .home-sci a::before that wants to overflow the
+    original design in .home-sci a aligns with or goes under the boundaries of .home-sci a */
+    transition: .5s;
+}
+.home-sci a:hover {
+    color: var(--text-color);
+}
+
+/* This actually creates a layer on top of the already existing styles. Note that content: '' is mandatory for this to happen */
+.home-sci a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: var(--main-color);
+    z-index: -1;  /* This now takes the design behind the existing one.*/
+    transition: .5s;
+}
+
+/* This makes the styles above appear when you hover the social media icons. Note that width in the above has later made 0 so that it stays hidden and 
+only becomes visible when hover i.e 100% as indicated below */
+.home-sci a:hover::before {
+    width: 100%; 
+}
+
+/* This style can show how to split the page into two vertical halves */
+.home-imgHover {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 45%;
+    height: 100%;
+    background: transparent;
+    /* border: 2px solid red; */
+    transition: 3s;
+}
+
+/* This was meant to dim the light on the image when hovered over */
+.home-imgHover:hover{
+    background: var(--text-color);
+    opacity: 0.8;
+}
+
+.fancy-line{
+    height: 0px;
+    width: 50%;
+    border: 2px solid var(--main-color);
+    border-style:dotted;
+    border-radius: 50%;
+    margin: 0 auto;
+}
+
+/* --------------------------------------------------------->Styling the About Section<---------------------------------------------------- */
+
+/* img {
+    width: 50%; /* Adjust to the desired width */
+    /* height: auto; /* Maintain aspect ratio */
+
+
+.about {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2rem;
+    background: var(--second-bg-color);
+    padding-bottom: 6rem;
+}
+
+.heading {
+    position: relative;
+    font-size: 4rem;
+    margin-bottom: 3rem;
+    text-align: center;
+
+}
+span {
+    color: var(--main-color);
+}
+.about-img {
+    position: relative;
+    width: 25rem;
+    height: 25rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+/* Creating the round bordered image */
+.about-img img {
+    width: 90%;   /*ordinarily, 50% border-radius was meant to make the image a circle but it couldn't that was why the height and width dimensions were brought*/
+    height: 90%;
+    border-radius: 50%;
+    border: .2rem solid var(--main-color);
+    opacity: 0.5;
+    overflow: hidden;
+}
+
+
+/* Creating the ring colored circle around the image circle */
+.about-img .circle-spin {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -55%) rotate(0); /* This was actually what moved the circle into the position of the image circle*/
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border-top: .2rem solid var(--second-bg-color);
+    border-bottom: .2rem solid var(--second-bg-color);
+    border-left: .2rem solid var(--main-color) ;
+    border-right: .2rem solid var(--main-color);
+    animation: aboutSpinner 8s linear infinite;
+}
+
+.about-content {
+    text-align: center;
+}
+
+.about-content h3 {
+    position: relative;
+    display: inline-block;
+    font-size: 2.6rem;
+    color: var(--main-color);
+}
+.about-content p {
+    position: relative;
+    font-size: 1.5rem;
+    margin: 2rem 0 3rem;
+    text-align: justify;
+}
+
+.btn-box.btns {
+    display: inline-block;
+    width: 15rem;
+}
+
+.btn-box.btns a::before {
+    background: var(--second-bg-color);
+}
+
+/* ------------------------------------->Styling for education section<---------------------------------------------------- */
+
+.education {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: auto;
+    padding-bottom: 5rem;
+}
+
+/* Spliited the eduction and experience into two columns */
+.education .education-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5rem;
+}
+
+.education-row .education-column {
+    flex: 1 1 40rem;
+}
+
+.education-column .title {
+    position:relative;
+    display: inline-block;
+    font-size: 2.5rem;
+    margin: 0 0 1.5rem 2rem;
+}
+
+/* Gave them that vertical blue line beside the education n experince items */
+.education-column .education-box {
+    position: relative;
+    border-left: .2rem solid var(--main-color);
+}
+
+.education-box .education-content {
+    position: relative;
+    padding-left: 2rem;
+}
+
+/* Created the circle design on the vertical line */
+.education-box .education-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -1.1rem;
+    width: 2rem;
+    height: 2rem;
+    background: var(--main-color);
+    border-radius: 50%;
+
+}
+
+/* Gave each of the education/experience item a box  */
+.education-content .content {
+    position: relative;
+    padding: 1.5rem;
+    border: .2rem solid var(--main-color);
+    border-radius: .6rem;
+    margin-bottom: 2rem;
+    overflow: hidden;
+}
+
+.education-content .content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: rgb(198, 194, 194);
+    z-index: -1;
+    transition: .5s;
+}
+
+/* ------------------------------------->ALWAYS ENSURE YOU CHANGE THE WIDTH ABOVE TO ZERO IF YOU WANT THE HOVER EFFECT BELOW TO WORK */
+.education-content .content:hover::before {
+    width: 100%;
+}
+/* work on the yer/calendar icon */
+.education-content .content .year {
+    font-size: 1.5rem;
+    color: var(--main-color);
+    padding-bottom: .5rem;
+}
+.education-content .content .year i {
+    padding-right: .5rem;
+}
+
+.education-content .content h3 {
+    font-size: 1.5rem;
+}
+.education-content .content p {
+    font-size: 1.35rem;
+    padding-top: .2rem;
+}
+.education-content .content li {
+    list-style: circle;
+}
+.education-content .content ul {
+    padding-left: 1.4rem;
+}
+
+/* ----------------------------------------------->Styles for the Skills page<------------------------------------------------------------------ */
+
+.skills {
+    min-height: auto;
+    padding-bottom: 7rem;
+    background: var(--second-bg-color);
+}
+
+.skills h2{
+    display: inline-block;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.skills .skills-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5rem;
+}
+
+/* This spreads the columns apart */
+.skills-row .skills-column {
+    flex: 1 1 40rem;
+}
+
+.skills-column .title {
+    position: relative;
+    display: inline-block;
+    font-size: 2.5rem;
+    margin: 0 0 1.5rem;
+}
+
+.skills-column .skills-box {
+    position: relative;
+
+}
+
+/* This created the box around the skills */
+.skills-box .skills-content {
+    position: relative;
+    border: .2rem solid var(--main-color);
+    border-radius: .6rem;
+    padding: .5rem 1.5rem;
+    z-index: 1;
+    overflow: hidden;
+}
+.skills-box .skills-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: var(--text-color);
+    z-index: -1;
+    transition: .5s;
+}
+.skills-box .skills-content:hover::before {
+    width: 100%;
+}
+/* This created the vertical space in-between the skills item */
+.skills-content .progress {
+    padding: 1rem 0;
+}
+
+
+/* This separated the skill name and the percentage */
+.skills-content .progress h3 {
+    font-size: 1.7rem;
+    display: flex;
+    justify-content: space-between;
+}
+.skills-content .progress h3 span {
+    color: var(--bg-color);
+}
+
+/* Creating the progress bar without any progess showing*/
+.skills-content .progress .bar {
+    height: 2.5rem;
+    border-radius: .6rem;
+    border: .2rem solid var(--main-color);
+    padding: .5rem;
+    margin: 1rem 0;
+}
+
+/* Filling the progress bar till full */
+.skills-content .progress .bar span {
+    display: block;
+    height: 100%;
+    border-radius: .3rem;
+    background: var(--main-color);
+}
+
+.skills-column:nth-child(1) .skills-content .progress:nth-child(1) .bar span {
+    width: 80%;
+}
+
+.skills-column:nth-child(1) .skills-content .progress:nth-child(2) .bar span {
+    width: 70%;
+}
+
+.skills-column:nth-child(1) .skills-content .progress:nth-child(3) .bar span {
+    width: 65%;
+}
+.skills-column:nth-child(1) .skills-content .progress:nth-child(4) .bar span {
+    width: 70%;
+}
+.skills-column:nth-child(1) .skills-content .progress:nth-child(5) .bar span {
+    width: 0;
+}
+.skills-column:nth-child(1) .skills-content .progress:nth-child(6) .bar span {
+    width: 0;
+}
+.skills-column:nth-child(1) .skills-content .progress:nth-child(7) .bar span {
+    width: 0;
+}
+.skills-column:nth-child(2) .skills-content .progress:nth-child(1) .bar span {
+    width: 50%;
+}
+
+.skills-column:nth-child(2) .skills-content .progress:nth-child(2) .bar span {
+    width: 75%;
+}
+
+.skills-column:nth-child(2) .skills-content .progress:nth-child(3) .bar span {
+    width: 70%;
+}
+.skills-column:nth-child(2) .skills-content .progress:nth-child(4) .bar span {
+    width: 80%;
+}
+
+
+/* ----------------------------------------->Styles for Contact<---------------------------------------------------------- */
+
+/* Was to used to center the textarea box */
+
+.contact {
+    min-height: auto;
+    padding-bottom: 7rem;
+}
+
+.contact h2 {
+    display: inline-block;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.contact form {
+    max-width: 70rem;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* To move the input boxes two container apart horizontally */
+.contact form .input-box {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+/* To split each of the individual input boxes   */
+.contact form .input-box .input-field {
+    position: relative;
+    width: 49%;
+    margin: .8rem 0;
+}
+
+/* Creating the blue box around our input areas */
+.contact form .input-box .input-field input,
+.contact form .textarea-field textarea {
+    width: 100%;
+    height: 100%;
+    padding: 1.5rem;
+    font-size: 1.6rem;
+    color: var(--bg-color);
+    background: transparent;
+    border-radius: .6rem;
+    border: .2rem solid var(--main-color);
+}
+
+.contact form .input-box .input-field input::placeholder,
+.contact form .textarea-field textarea::placeholder {
+    color: var(--bg-color);
+}
+
+.contact form .focus {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: var(--second-bg-color);
+    border-radius: .6rem;
+    z-index: -1;
+    transition: .5s;
+}
+
+.contact form .input-box .input-field input:focus~.focus,
+.contact form .input-box .input-field input:valid~.focus,
+.contact form .textarea-field textarea:focus~.focus {
+    width: 100%;
+}
+
+.contact form .textarea-field {
+    position: relative;
+    margin: .8rem 0 2.7rem;
+    display: flex;
+}
+
+.contact form .textarea-field textarea {
+    resize: none;
+}
+
+.contact form .btn-box.btns .btn {
+    cursor: pointer;
+}
+
+/* ----------------------------------------->Footer Design<---------------------------------------- */
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 2rem 9%;
+    background: #cbdfe8;
+}
+
+.footer-text,
+.footer-iconTop {
+    position: relative;
+}
+
+.footer-text p {
+    font-size: 1.6rem;
+}
+
+
+/* ------------------------------------->Designing the arrow up button<--------------------------------------- */
+.footer-iconTop a {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: .8rem;
+    background: var(--main-color);
+    border: .2rem solid var(--main-color);
+    border-radius: .6rem;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.footer-iconTop a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: #cbdfe8 ;
+    z-index: -1;
+    transition: .5s;
+}
+.footer-iconTop a:hover::before {
+    width: 100%;
+}
+
+
+.footer-iconTop a i {
+    font-size: 2.4rem;
+    color: var(--bg-color);
+}
+
+.footer-iconTop a:hover i {
+    color: var(--main-color);
+}
+
+/*---------------------------> Animation Reloaded and scroll<--------------------------------------- */
+
+.animate {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--text-color);
+    z-index: 98;
+}
+
+.animate.home-img {
+    width: 50%;
+}
+
+
+/* ------------------------------> Navbar Animation i.e the texts transition as if it's being typed <---------------------------------------------------- */
+.logo .animate,
+.navbar .animate,
+#menu-icon .animate,
+.home.show-animate .animate {
+    animation: showRight 1s ease forwards;
+    animation-delay: calc(.3s * var(--i));
+}
+
+.animate.scroll {
+    transition: 1s ease;
+    transition-delay: calc(.3s / var(--i));
+    animation: none;
+}
+
+/* Using this to make that curtain like transition blend for the pages whose original color doesn't originally match with the curtain  */
+
+section:nth-child(odd) .animate.scroll, 
+.footer .animate.scroll {
+    background: var(--second-bg-color);
+}
+
+.education .education-box .animate.scroll {
+    width: 105%;
+}
+
+/* This is the curtain like transition that heralds the content of each page or section whenever it is opened */
+.about.show-animate .animate.scroll, 
+.education.show-animate .animate.scroll,
+.skills.show-animate .animate.scroll,
+.contact.show-animate .animate.scroll,
+.footer.show-animate .animate.scroll {
+    transition-delay: calc(.3s * var(--i));
+    width: 0;
+}
+
+
+/*---------------------------------------> Breakpoints/Making the page responsive<-------------------------------------------- */
+
+@media (max-width:1360px) {
+    .home::before {
+        
+        background-image: none;
+    }
+}
+
+@media (max-width: 1200px) {
+    html {
+        font-size: 55%;  
+    }
+    
+
+}
+
+@media (max-width: 991px) {
+    .header {
+        padding: 2rem 4%;
+    }
+
+    section {
+        padding: 10rem 4% 2rem;
+    }
+
+    .home {
+        padding: 0 4%;
+    }
+
+    .footer {
+        padding: 2rem 4%;
+    }
+
+}
+
+@media (max-width: 850px) {
+    .animate.home-img {
+        width: 55%;
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        background: var(--text-color);
+    }
+
+    #menu-icon {
+        display: block; /* At this screen size and lower, the menu icon will appear*/
+    }
+
+    /* makes the nav elements appear in a defined different from the icon */
+    .navbar {
+        position: absolute;
+        top: 100%;
+        left: -100%;
+        width: 100%;
+        padding: 1rem 4%;
+        background: var(--main-color);
+        box-shadow: 0 .5rem 1rem rgba(0,0,0, .2);
+        z-index: 1;
+        transition: .25s ease;
+        transition-delay: .25s;
+    }
+
+    /*  */
+    .navbar.active {
+        left: 0;
+        transition-delay: 0s;
+    }
+
+    /* This forms a layer that will now appear with the menu elements. Take note of its position in the html */
+    .navbar .active-nav {
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: var(--text-color);
+        border-top: .1rem solid rgba(0, 0, 0, .2);
+        z-index: -1;
+        transition: .25s ease;
+        transition-delay: 0s;
+    }
+
+    .navbar.active .active-nav {
+        left: 0;
+        transition-delay: .25s;
+    }
+
+    .navbar a {
+        display: block;
+        font-size: 2rem;
+        margin: 3rem 0;
+        transform: translateX(-20rem);
+        transition: .25s ease;
+        transition-delay: 0s;
+    }
+
+    .navbar.active a {
+        transform: translateX(0);
+        transition-delay: .25s;
+    }
+
+    .home-imgHover {
+        pointer-events: none;
+        background: var(--text-color);
+        opacity: 0.01;
+    }
+}
+
+@media (max-width: 520px) {
+    html {
+        font-size: 50%;
+    }
+
+    .home-content h1 {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .home-sci {
+        width: 160px;
+    }
+
+    .home-sci a {
+        width: 38px;
+        height: 38px;
+    }
+}
+
+@media (max-width: 462px) {
+    .home-content h1 {
+        font-size: 5.2rem;
+    }
+
+    .education {
+        padding: 10rem 4% 5rem 5%;
+    }
+
+    .contact form .input-box .input-field {
+        width: 100%;
+    }
+
+    .footer {
+        flex-direction: column-reverse;
+    }
+    .footer p {
+        margin-top: 2rem;
+        text-align: center;
+    }
+}
+
+@media (max-width: 371px) {
+    .home {
+        justify-content: center;
+    }
+
+    .home-content {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .home-content h1 {
+        font-size: 5rem;
+    }
+}
+
+/* Keyframes animation */
+
+@keyframes homeBgText {
+    0%, 10%, 100% {
+        background-position: -33rem 0;
+    }
+    65%,
+    85% {
+        background-position: 0 0;
+    }
+}
+
+@keyframes homeCursorText {
+    0%, 10%, 100% {
+        width: 0;
+    }
+    65%,
+    78%,
+    85% {
+        width: 100%;
+        opacity: 1;
+    }
+
+    75%,
+    81% {
+        opacity: 0;
+    }
+}
+
+@keyframes aboutSpinner {
+    100% {
+        transform: translate(-50%, -55%) rotate(360deg); /*responsible for the rotation on the about page*/
+    }
+}
+
+@keyframes showRight {
+    100% {
+        width: 0
+    }
+}
