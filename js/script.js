@@ -61,3 +61,6 @@ window.onscroll = () => {
 
 }
 
+// let change = new Date().getFullYear();
+// const dynamicft = document.querySelector(".ft");
+// dynamicft.textContent = "Copyright" + &copy; + change +  "CRUDOTECH | All Rights Reserved.";
